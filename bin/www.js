@@ -19,6 +19,8 @@ app.set('port', port);
  * Create HTTP server.
  */
 
+// app es una funcion de tipo middleware (codigo intermediario )//
+//Arrow function / Lambda Expression
 var server = http.createServer(app);
 
 /**
@@ -87,4 +89,6 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log(`Listening at http://localhost:${addr.port}`);
+  console.log(addr);
 }
