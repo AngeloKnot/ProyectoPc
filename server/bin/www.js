@@ -4,24 +4,32 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('proyectopc:server');
-var http = require('http');
+//var app = require('../app');
+import app from '../app';
+//var debug = require('debug')('projnotes2022b:server');
+import debug from 'debug'; 'projnotes2022b:server';
+//var http = require('http');
+import http from 'http';
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+//var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
+// app es una función de tipo middlwware (código intermediario)
+// Arrow functions - Lambda EXpression
+//(num1,num2) => num1 + num2
 
-// app es una funcion de tipo middleware (codigo intermediario )//
-//Arrow function / Lambda Expression
-var server = http.createServer(app);
+//Toda la logica del server va aqui abajo -  back-end
+//(req, res) => {...res,send("algo")}
+//var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
