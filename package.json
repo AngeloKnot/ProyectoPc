@@ -6,7 +6,8 @@
     "start": "node ./server/bin/www.js",
     "dev": "node ./server/bin/www.js",
     "devb": "babel-watch ./server/bin/www",
-    "build": " "
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel ./server --out-dir dist --copy-files"
   },
   "dependencies": {
     "app-root-path": "^3.0.0",
