@@ -1,0 +1,1 @@
+console.log("Web pack done 🍕"),console.log(void 0),new Promise((o=>{setTimeout((()=>{o("resolved")}),2e3)})).then((o=>{console.log(o)}));

@@ -23,6 +23,40 @@ module.exports = {
         port: 8080,
         //3.3 Definiendo el host
         host: "localhost"
+    },
+    //. Agregando un modulo webpack
+    module: {
+        rules: [
+            {
+                test: /\.js$/, //asddffasd.js a.js a.s\.js$
+                exclude: /(node_modules | bower_components)/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                [
+                                    '@babel/preset-env',
+                                    {
+                                        'modules': false,
+                                        'useBuiltIns': 'usage',
+                                        'targets': '> 0.25%, not dead',
+                                        'corejs': 3
+                                    }
+
+                                ]
+
+                            ]
+
+
+                        }
+                    }
+
+                ]
+
+            }
+
+        ]
     }
 
 }
