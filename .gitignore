@@ -1,1 +1,3 @@
 node_modules
+#ignorando script de front end
+bundle.js
