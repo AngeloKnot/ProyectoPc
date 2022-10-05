@@ -1,5 +1,10 @@
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
 //Biblioteca de 3ros para manejar errores http
 var createError = require('http-errors'); //El framework Express
 
@@ -60,5 +65,10 @@ app.use(function (err, req, res, next) {
 
   res.status(err.status || 500);
   res.render('error');
-});
-module.exports = app;
+}); // Exportando la instancia del server "app"
+// ES5 👇
+// module.exports = app;
+// ES6 👇
+
+var _default = app;
+exports.default = _default;
