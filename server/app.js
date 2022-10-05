@@ -58,4 +58,8 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// Exportando la instancia del server "app"
+// ES5 👇
+// module.exports = app;
+// ES6 👇
+export default app;
