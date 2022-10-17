@@ -1,22 +1,32 @@
-//Biblioteca de 3ros para manejar errores http
-var createError = require('http-errors');
-//El framework Express
-var express = require('express');
-//Biblioteca del nucleo de node que sirve para
-//Administrar rutas
-var path = require('path');
-//Biblioteca externa que sirve para
-//Administrar cokies
-var cookieParser = require('cookie-parser');
-//Biblioteca que registra en consola
-//Solicitudes del cliente
-var logger = require('morgan');
+// Biblioteca de 3ros para manejar errores http
+
+// ES5: var createError = require('http-errors');
+// ES6 👇
+import createError from 'http-errors';
+// El framework express
+
+import express from 'express';
+// Biblioteca del nucleo de node que sirve para
+// administrar rutas
+
+import path from 'path';
+// Biblioteca externa que sirve para administrar
+// cookies
+
+import cookieParser from 'cookie-parser';
+// Biblioteca que registra en consola
+// solicitudes del cliente
+
+import logger from 'morgan';
 
 //Definiciones de la ruta
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
+
+import indexRouter from "./routes/index";
+import usersRouter from "./routes/users";
 //Creando una instancia en Express
-var app = express();
+
+const app = express();
 
 // view engine setup
 //Configura el motor de plantillas
@@ -43,20 +53,22 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
-});
+
+  app.use((req, res, next) => {
+    next(createError(404));
+  });
 
 // error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+  app.use((err, req, res, next) => {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+  });
+
 
 // Exportando la instancia del server "app"
 // ES5 👇
