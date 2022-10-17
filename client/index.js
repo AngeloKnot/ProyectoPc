@@ -1,20 +1,25 @@
 console.log("Webpack Working!!! 📦");
 
-//codigo ES6
-//DEfault Parameters
-let show = (msg) => {
+// Codigo ES6
+// Default Parameters
+let show = (msg = "No message given") => {
     console.log(msg)
 }
-
 show();
 
-//async await
+// Async Await
 function resolveAfter2Seconds() {
     return new Promise(resolve => {
         setTimeout(() => {
-            resolve('resolved')
+            resolve('resolved');
         }, 2000)
-    })
+    });
 }
 
-resolveAfter2Seconds().then(data => { console.log(data) });
+async function asyncCall() {
+    console.log("Calling");
+    const result = await resolveAfter2Seconds();
+    console.log(result);
+}
+
+asyncCall();
