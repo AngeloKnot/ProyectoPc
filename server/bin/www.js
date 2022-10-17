@@ -7,7 +7,8 @@
 //var app = require('../app');
 import app from '../app';
 //var debug = require('debug')('projnotes2022b:server');
-import debug from 'debug'; 'projnotes2022b:server';
+var debug = require('debug')('projnotes2022b');
+//import debug from 'debug'; 'projnotes2022b:server';
 //var http = require('http');
 import http from 'http';
 
@@ -99,4 +100,8 @@ function onListening() {
   debug('Listening on ' + bind);
   console.log(`Listening at http://localhost:${addr.port}`);
   console.log(addr);
+
+  // Desestrecuturando port de addr
+  let { port } = addr
+  debug(`🎈 Listening on http://localhost:${port}`);
 }

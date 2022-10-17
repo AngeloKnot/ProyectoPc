@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./server/bin/www.js",
-    "dev": "node ./server/bin/www.js",
+    "start": "NODE_ENV=production node ./dist/bin/www",
+    "dev": "DEBUG=projnotes2022b NODE_ENV=development node --exec babel-node ./server/bin/www",
     "devc": "NODE_ENV=development && webpack serve --config ./webpack.dev.config.js --mode development",
     "devb": "babel-watch ./server/bin/www",
     "cleans": "rm -rf dist",

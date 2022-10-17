@@ -12,6 +12,13 @@ var cookieParser = require('cookie-parser');
 //Solicitudes del cliente
 var logger = require('morgan');
 
+// Importando Webbpack middleware
+import webpack from 'webpack'
+import webpackDevMiddleware from 'webpack-dev-middleware'
+import webpackHotMiddleware from 'webpack-hot-middleware'
+import webpackConfig from '../webpack.dev.config'
+
+
 //Definiciones de la ruta
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
