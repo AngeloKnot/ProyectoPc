@@ -8,8 +8,8 @@ const path = require('path');
 const MiniCssExtractPlugin =
     require('mini-css-extract-plugin');
 
-    //Importando EsLint para webpack
-    const EsLintPlugin = require('eslint-webpack-plugin')
+//Importadno ESLint para webpack
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 // Exportamos un objeto de configuración
 // que sera usado por webpack
@@ -70,6 +70,6 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'stylesheets/app.css'
         }),
-        new EsLintPlugin()
+        new ESLintPlugin()
     ]
 }
