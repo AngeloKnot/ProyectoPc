@@ -10,24 +10,22 @@ import path from 'path';
 // Biblioteca externa que sirve para administrar
 // cookies
 import cookieParser from 'cookie-parser';
-// Biblioteca que registra en consola
-// solicitudes del cliente
+// Registrador de eventos HTTP
 import morgan from 'morgan';
-import webpack from 'webpack';
 
+// Importando Webbpack middleware
+import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
+import webpackConfig from '../webpack.dev.config';
 
 // Logger de la aplicación
 import logger from './config/winston';
 import debug from './services/debugLogger';
 
-import webpackConfig from '../webpack.dev.config';
-
 // Definición de rutas
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
-
+import indexRouter from './routes/index.js';
+import usersRouter from './routes/users.js';
 // Recuperar el modo de ejecución de la app
 const nodeEnv = process.env.NODE_ENV || 'development';
 
@@ -36,7 +34,7 @@ const app = express();
 
 // Inclusion del webpack middleware
 if (nodeEnv === 'development') {
-  debug('✒ Ejecutando en modo de desarrollo 👨‍💻')
+  debug('✒ Ejecutando en modo de desarrollo 👨‍💻');
   // Configurando webpack en modo de desarrollo
   webpackConfig.mode = 'development';
   // Configurar la ruta del HMR (Hot Module Replacement)
@@ -57,7 +55,6 @@ if (nodeEnv === 'development') {
       publicPath: webpackConfig.output.publicPath,
     })
   );
-
   // Registrando el HMR Middleware
   app.use(WebpackHotMiddleware(bundler));
 } else {
@@ -85,25 +82,26 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Registro Rutas
-app.use('/', indexRouter);
-app.use('/index', indexRouter);
+ app.use('/', indexRouter);
+ app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   logger.error(
-    `404 Page Not Found - ${req.originalUrl} - Method: ${req.method}`
+    `404 - Page Not Found - ${req.originalUrl} - Method: ${req.method}`
   );
+  next(createError(404));
+});
 
 // error handler
-  app.use((err, req, res) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-    // Registrando mensaje de error
-    logger.error(`${err.status || 500} - ${err.message}`);
-
+  // Registrando mensaje de error
+  logger.error(`${err.status || 500} - ${err.message}`);
 
   // render the error page
   res.status(err.status || 500);

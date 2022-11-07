@@ -7,10 +7,10 @@ Winston ofrece 3 tipos de transportes:
 // Importar Winston
 import Winston, { format } from 'winston';
 
-// Se obtine la ruta a la raíz del proyecto
+// Se obtiene la ruta a la raiz del proyecto
 import appRoot from 'app-root-path';
 
-// Destructurando modulos de format
+// Desestructurando modulos utiles de format
 const { combine, timestamp, label, printf, colorize } = format;
 
 // Definiendo colores para cada tipo de error
@@ -25,30 +25,32 @@ const colors = {
 // Agregando el esquema de colores a Winston
 Winston.addColors(colors);
 
-// Creando formatos para la consola
+// Creando los formatos para la consola
 const myConsoleFormat = combine(
     // Colores
     colorize({ all: true }),
-    // Agregando una etiqueta
-    label({ label: '🖋️' }),
-    // Agregando fecha
+    // Agregar una etiqueta
+    label({ label: '✒️' }),
+    // Agregando Fecha
     timestamp({ format: 'DD-MM-YYYY HH:mm:ss' }),
-    // Función de impresion
+    // Funcion de impresion
     printf(
-        (info) => `${info.label}: ${info.lavel}: ${info.timestamp}: ${info.printf}`
+        (info) =>
+            `${info.label}: ${info.level}: ${info.timestamp}: ${info.message} `
     )
 );
 
-// Creando formato para archivo
+// Creando el formato para archivo
 const myFileFormat = combine(
     // Quitando el color de texto de salida
     format.uncolorize(),
-    // Agregando fecha
+    // Agregamos fecha
     timestamp({ format: 'DD-MM-YY HH-mm-ss' }),
     // Formato de archivo de salida
     format.json()
 );
 
+// Creando el objeto de opciones de Winston
 const options = {
     infoFile: {
         level: 'info',
@@ -60,7 +62,7 @@ const options = {
     },
     warnFile: {
         level: 'warn',
-        filename: `${appRoot}/server/logs/info.log`,
+        filename: `${appRoot}/server/logs/warn.log`,
         handleExceptions: false,
         maxSize: 1048576, // 1MB
         maxFiles: 5,
@@ -68,7 +70,7 @@ const options = {
     },
     errorFile: {
         level: 'error',
-        filename: `${appRoot}/server/logs/info.log`,
+        filename: `${appRoot}/server/logs/error.log`,
         handleExceptions: false,
         maxSize: 1048576, // 1MB
         maxFiles: 5,
@@ -81,7 +83,7 @@ const options = {
     },
 };
 
-// Creamos una instancia del logger
+// Creamos una instancia del Logger
 const logger = Winston.createLogger({
     transports: [
         new Winston.transports.File(options.infoFile),
@@ -92,9 +94,9 @@ const logger = Winston.createLogger({
     exitOnError: false, // No finaliza en excepciones no manejadas
 });
 
-// Esto sirve para acoplar morgan a winston
-/* 
-  morgan --> Winston --> [ transport info ]
+// Esto sirve para acomplar morgan a winston
+/*
+morgan --> Winston --> [transport info]
 */
 logger.stream = {
     write(message) {
@@ -102,5 +104,5 @@ logger.stream = {
     },
 };
 
-// Exportando el logger
+// Exportando el Logger
 export default logger;
