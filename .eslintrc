@@ -1,4 +1,3 @@
-
 {
     "env": {
         "browser": true,
@@ -19,9 +18,10 @@
         "sourceType": "module"
     },
     "rules": {
-        "prettier/prettier": [
-            "error"
-        ],
-        "no-console": "off"
+        "prettier/prettier": ["error"],
+            "no-console": "off"
+        },
+        "globals": {
+            "M": "writable"
     }
 }

@@ -36,7 +36,7 @@ const myConsoleFormat = combine(
     // Funcion de impresion
     printf(
         (info) =>
-            `${info.label}: ${info.level}: ${info.timestamp}: ${info.message} `
+            `${info.label}:${info.level}: ${info.timestamp}: ${info.message} `
     )
 );
 
