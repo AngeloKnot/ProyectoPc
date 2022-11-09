@@ -19,6 +19,9 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from '../webpack.dev.config';
 
+//importando el configurador del motor de plantillas
+import configTemplateEngine from './config/templateEngine';
+
 // Logger de la aplicación
 import logger from './config/winston';
 import debug from './services/debugLogger';
@@ -26,6 +29,7 @@ import debug from './services/debugLogger';
 // Definición de rutas
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
+import { config } from 'dotenv';
 // Recuperar el modo de ejecución de la app
 const nodeEnv = process.env.NODE_ENV || 'development';
 
@@ -63,6 +67,12 @@ if (nodeEnv === 'development') {
 
 // view engine setup
 // Configura el motor de plantillas
+configTemplateEngine(app);
+
+//Establezco Middleware
+app.use(morgan('dev', { stream: logger.stream }));
+//Middleware para parsear a json la peticion
+app.use(express.json());
 // 1. Establecer donde estarán las plantillas
 // (Vistas -> Views)
 // app.set("<nombre de la var>", <valor>)
@@ -82,8 +92,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Registro Rutas
- app.use('/', indexRouter);
- app.use('/index', indexRouter);
+app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

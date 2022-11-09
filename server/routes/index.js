@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     // View model - al objeto (title: express)
     res.render('index', {
         title: 'Express',
-        author: 'Alfred Saucedo',
+        author: 'Adolfo Angel Lopez Martinez',
     });
 });
 
