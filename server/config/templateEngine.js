@@ -1,27 +1,25 @@
-import exphbs from "express-handlebars";
-import path, { extname } from "path";
+import exphbs from 'express-handlebars';
+import path from 'path';
 
-//app: Instancia de express
-
+// app: Instancia de express
 export default (app) => {
-    //configurar el motor de plantillas de express
-    //usando express handlebars
-    //1. registrar el motot de plantillas
+    // Configurar el motor de pantillas de express
+    // usando express-handlebars
+    // 1. Registar el motor de plantillas
     app.engine(
         'hbs',
         exphbs({
-            extname: 'hbs',
+            extname: '.hbs',
             defaultLayout: 'main',
         })
     );
 
-    //2.seleccionar el motor
+    // 2. Seleccionar el motor de plantillas
     app.set('view engine', 'hbs');
 
-    // 3. Establece la ruta de vistas
+    // 3. Establecer la ruta de las vistas
     app.set('views', path.join(__dirname, '..', 'views'));
 
     // 4. Retornar la instancia de express
-
     return app;
 };
