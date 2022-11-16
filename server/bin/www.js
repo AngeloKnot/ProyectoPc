@@ -6,16 +6,17 @@
 // ES5 👇
 // var app = require('../app');
 // ES6 👇
-import app from "../app"
-import debug from '../services/debugLogger'
-import http from 'http';
+var app = require('../app');
+var debug = require('debug')('proyectopc:server');
+var http = require('http');
+var configKeys = require  ('../config/configKeys');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3001');
-app.set('port', port);
+var port = normalizePort(configKeys.port);
+var port = normalizePort(process.env.PORT || '3000');
 
 /**
  * Create HTTP server.

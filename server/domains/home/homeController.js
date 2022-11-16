@@ -1,3 +1,6 @@
+// Cargando las variables de entorno
+import configKeys from '../../config/configKeys';
+
 // Creando los Actions Methods
 // GET "/"
 // GET "/index"
@@ -13,7 +16,10 @@ const home = (req, res) => {
 };
 
 const about = (req, res) => {
-    res.render('home/about', {});
+    const viewModel = {
+        appVersion: configKeys.appVersion,
+    };
+    res.render('home/about', viewModel);
 };
 
 // Exportando el Controlador
