@@ -36,7 +36,7 @@ const app = express();
 
 // Inclusion del webpack middleware
 if (nodeEnv === 'development') {
-  debug('✒ Ejecutando en modo de desarrollo 👨‍💻');
+  debug('☕☕ Ejecutando en modo de desarrollo 👨‍💻');
   // Configurando webpack en modo de desarrollo
   webpackConfig.mode = 'development';
   // Configurar la ruta del HMR (Hot Module Replacement)
@@ -60,7 +60,7 @@ if (nodeEnv === 'development') {
   // Registrando el HMR Middleware
   app.use(WebpackHotMiddleware(bundler));
 } else {
-  debug('✒ Ejecutando en modo de producción 🏭');
+  debug('☕☕ Ejecutando en modo de producción 🏭');
 }
 
 // view engine setup
