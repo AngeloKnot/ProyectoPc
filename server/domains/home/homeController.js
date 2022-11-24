@@ -22,5 +22,12 @@ const about = (req, res) => {
     res.render('home/about', viewModel);
 };
 
+const contacto = (req, res) => {
+    const viewModel = {
+        appVersion: configKeys.appVersion,
+    };
+    res.render('home/contacto', viewModel);
+};
+
 // Exportando el Controlador
-export default { home, about };
+export default { home, about, contacto };
