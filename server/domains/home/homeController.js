@@ -7,8 +7,8 @@ import configKeys from '../../config/configKeys';
 const home = (req, res) => {
     // 1. Generando el view-model
     const viewModel = {
-        title: 'Express',
-        author: '💞Adolfo Angel Lopez Martinez 💞',
+        title: 'CIBERENLACE',
+        author: '💞Adolfo Angel Lopez Martinez 💞, Sanchez Rodriguez Jesus Adrian y Flores Lopez Cesar Antonio',
     };
 
     // 2. Madamos a generar la vista con el Template Engine
