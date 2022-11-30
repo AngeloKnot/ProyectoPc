@@ -7,8 +7,8 @@ import configKeys from '../../config/configKeys';
 const home = (req, res) => {
     // 1. Generando el view-model
     const viewModel = {
-        title: 'CIBERENLACE',
-        author: '💞Adolfo Angel Lopez Martinez 💞, Sanchez Rodriguez Jesus Adrian y Flores Lopez Cesar Antonio',
+        title: 'Express',
+        author: '💞Adolfo Angel Lopez Martinez 💞',
     };
 
     // 2. Madamos a generar la vista con el Template Engine
@@ -22,12 +22,5 @@ const about = (req, res) => {
     res.render('home/about', viewModel);
 };
 
-const contacto = (req, res) => {
-    const viewModel = {
-        appVersion: configKeys.appVersion,
-    };
-    res.render('home/contacto', viewModel);
-};
-
 // Exportando el Controlador
-export default { home, about, contacto };
+export default { home, about };

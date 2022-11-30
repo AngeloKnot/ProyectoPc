@@ -1,7 +1,7 @@
 body {
     padding: 50px;
     font: "Lucida Grande", Helvetica, Arial, sans-serif;
-    background-color: rgb(31, 31, 31);
+    background-color: rgb(8, 15, 20);
 }
 
 a {
@@ -19,6 +19,7 @@ button {
     font-weight: bold;
     position: relative;
     border-radius: 12px;
+    
 }
 
 button::before {
@@ -50,95 +51,8 @@ button::before {
         background-position: 0 0;
     }
 }
+
 /** fin boton RGB**/
-
-/** Services section **/
-
-.Services {
-    margin-top: 90px;
-    padding: 60px 0;
-    background: #1f2026;
-    font-family: Poppins;
-}
-
-.Services .titlepage {
-    text-align: center;
-}
-
-.Services .titlepage h2 {
-    color: #fff;
-    padding-bottom: 20px;
-}
-
-.Services .titlepage p {
-    color: #fff;
-}
-
-.Services .Services-box i {
-    background: #fff;
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
-    display: inline-block;
-    padding-top: 19px;
-}
-
-.Services .Services-box i:hover {
-    background: #ddd;
-}
-
-.Services .Services-box h3 {
-    padding: 20px 0px 20px 0px;
-    font-size: 20px;
-    line-height: 25px;
-    color: #fff;
-    display: block;
-    font-weight: 500;
-}
-
-.Services .Services-box {
-    text-align: center;
-    background-color: transparent;
-    border-radius: 20px;
-    border: #cecfd7 solid 2px;
-    padding: 40px;
-    transition: ease-in all 0.5s;
-    margin-bottom: 30px;
-}
-
-.Services .Services-box:hover {
-    background: #000000;
-    transition: ease-in all 0.5s;
-    cursor: pointer;
-}
-
-.Services .Services-box p {
-    font-size: 16px;
-    line-height: 24px;
-    color: #fff;
-}
-
-.read_more {
-    font-size: 16px;
-    background-color: #fff;
-    color: #000;
-    padding: 10px 0px;
-    width: 100%;
-    max-width: 190px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-.read_more:hover {
-    background: #8308eb;
-    color: #fff;
-}
-
-
-/** end Services section **/
 
 /** why section **/
 
@@ -268,4 +182,5 @@ button::before {
 .copyright a:hover {
     color: #0c0f38;
 }
+
 /** end footer **/
