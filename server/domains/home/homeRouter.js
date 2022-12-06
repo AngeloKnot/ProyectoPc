@@ -14,5 +14,10 @@ router.get(['/', '/home', '/index'], homeController.home);
 // GET '/about
 router.get(['/about'], homeController.about);
 
+// GET '/contacto
+router.get(['/contacto'], homeController.contacto);
+
+
+
 // Exporto este tramo de ruta
 export default router;

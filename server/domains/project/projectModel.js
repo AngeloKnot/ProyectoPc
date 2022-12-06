@@ -16,6 +16,10 @@ const ProjectSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    plan: {
+    type: String,
+    required: true,
+}
 });
 // Exportando la compilacon de ProjectSchema
 // en un modelo de mongoose

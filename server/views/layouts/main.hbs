@@ -1,15 +1,17 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>{{title}}</title>
     <link rel='shortcut icon' href='/favicon.ico' type='image/x-icon' />
-    <link rel="stylesheet" href="/stylesheets/app.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/app.css' />
   </head>
   <body>
-    <nav>{{>_navbar}}</nav>
-    {{{body}}}
-    <script src="/bundle.js"></script>
+    <nav class="light-blue darken-4">
+      {{>_navbar}}
+    </nav>
+    <div class='container'>
+      {{{body}}}
+    </div>
+    <script src='/bundle.js'></script>
   </body>
 </html>
