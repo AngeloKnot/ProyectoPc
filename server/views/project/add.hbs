@@ -1,0 +1,60 @@
+<body background="https://wallpapercave.com/wp/wp7890706.jpg">
+
+  <br>
+  
+  <div class="col s12 m7">
+    <div class="card horizontal blue-grey lighten-5">
+      <div class="card-image">
+        <img src='https://wallpapercave.com/wp/wp10864166.jpg' alt='Project Image' />
+        <span class='card-title white teal-text text-darken-4'>
+          Agregar Usuario a espera
+        </span>
+      </div>
+      <div class="card-stacked">
+        <form autocomplete='off' action='/project/add' method='POST'>
+        <div class="card-content">
+          
+          <br>
+          
+          <div class='input-field'>
+           <h5><label for='project-name'> 
+             <b> Nombre de la empresa o usuario </b><br>
+            </label></h5>
+            <input type="text" name="name" id="project-name" placeholder="Ingrese el nombre aquí👇🏻"
+              value="{{project.name}}">
+            {{#if errorModel.nameError}}
+            <span style="color:red;">🚩 {{errorModel.nameError}}</span>
+            {{/if}}
+
+            <div class='input-field'>
+              <label for='project-description'>
+                Tipo de comercio
+              </label>
+              <textarea name="description" id="project-description"
+                class="materialize-textarea">{{project.description}}</textarea>
+              {{#if errorModel.descriptionError}}
+              <span style="color:red;">🚩 {{errorModel.descriptionError}}</span>
+              {{/if}}
+
+              <div class='input-field'>
+                <label for='project-description'>
+                  Tipo de plan del inventario
+                </label>
+                <textarea name="plan" id="project-plan" class="materialize-textarea">{{project.plan}}</textarea>
+                {{#if errorModel.descriptionError}}
+                <span style="color:red;">🚩 {{errorModel.planError}}</span>
+                {{/if}}
+              <div class='card-action'>
+                <button type="submit" class="blue darken-3 waves-effect waves-light btn">
+                  <i class="material-icons left">note_add</i> Agregar
+                </button>
+              </div>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

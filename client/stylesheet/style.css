@@ -1,0 +1,186 @@
+body {
+    padding: 50px;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: rgb(8, 15, 20);
+}
+
+a {
+    color: #596164;
+}
+
+/** boton RGB**/
+button {
+    background: black;
+    cursor: pointer;
+    border: none;
+    padding: 16px 32px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    border-radius: 12px;
+    
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            red, blue, deeppink, blue, red, deeppink, blue);
+    background-size: 800%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/** fin boton RGB**/
+
+/** why section **/
+
+.why {
+    margin-top: 90px;
+    background: rgb(29, 29, 29);
+    font-family: Poppins;
+}
+
+.why .titlepage {
+    text-align: center;
+    color: #fcfafa;
+}
+
+.why .titlepage h2 {
+    padding-bottom: 20px;
+}
+
+.why .titlepage p {
+    color: #fcfafa;
+}
+
+.why .why-box h3 {
+    padding: 20px 0px 20px 0px;
+    font-size: 20px;
+    line-height: 25px;
+    color: #ffffff;
+    display: block;
+    font-weight: 500;
+}
+
+.why .why-box {
+    text-align: center;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 40px 20px 20px 20px;
+    transition: ease-in all 0.5s;
+    margin-bottom: 30px;
+    box-shadow: #ddd 0px 0px 10px
+}
+
+.why .why-box p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+}
+
+.why .why-box:hover {
+    transition: ease-in all 0.1s;
+    transform: scale(1.1);
+}
+
+.bg {
+    font-size: 16px;
+    background-color: #090808;
+    color: #fff;
+    padding: 10px 0px;
+    width: 100%;
+    max-width: 190px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.bg:hover {
+    background: #919092;
+    color: rgb(241, 237, 237);
+}
+
+/** end why section **/
+
+/** footer **/
+
+.footer {
+    font-family: Poppins;
+    background: #252727;
+}
+
+.cont {
+    text-align: center;
+    margin-top: 31%;
+}
+
+.cont h3 {
+    color: #fff;
+    font-size: 45px;
+    line-height: 30px;
+    font-weight: bold;
+    padding: 30px 0px 0px 0px;
+}
+
+.cont span {
+    color: #fff;
+    font-size: 30px;
+    line-height: 30px;
+    padding: 30px 0px 30px 0px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.cont p {
+    color: #fff;
+    font-size: 17px;
+    line-height: 30px;
+    padding: 0 130px;
+    padding-bottom: 60px;
+}
+
+.copyright {
+    padding: 20px 0px;
+    background: #fff;
+}
+
+.copyright p {
+    color: #1e1e1e;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.copyright a {
+    color: #1e1e1e;
+}
+
+.copyright a:hover {
+    color: #0c0f38;
+}
+
+/** end footer **/

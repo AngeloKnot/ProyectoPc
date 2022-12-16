@@ -1,0 +1,41 @@
+<body background="https://wallpapercave.com/wp/wp10117219.jpg">
+
+
+    <div class="row ">
+        <div class="col s12 m4">
+            <div class="card blue lighten-3 ">
+                <div class="card-content black-text">
+                    <center>
+                        <span class="card-title"><i>CIBERENLACE<br> Lista de proyectos </i></span>
+                    </center>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+
+    <table class="centered" style="background-color:#33475b">
+        <thead style="background-color:#225282">
+            <tr>
+                <th>Nombre del Usuario o Negocio</th>
+                <th>Tipo de comercio</th>
+                <th>Plan de inventario</th>
+            </tr>
+        </thead>
+
+        <tbody class=" white-text">{{#each projects}}
+            <tr>
+
+                <td><i>{{name}}</i></td>
+                <td><i>{{description}}</i></td>
+                <td><i>{{plan}}</i></td>
+                {{/each}}
+        </tbody>
+    </table>
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+
+</body>
